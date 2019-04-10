@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col-6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link " id="Personal_Details-tab"  href="Personal_Details.html" role="tab" aria-controls="Personal_Details"
+                   aria-selected="true">Personal Details
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" id="Address-tab"  data-toggle="tab" href="Address.html" role="tab" aria-controls="Address" aria-selected="false">
+                      Address</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" id="More_details-tab"  href="More_details.html" role="tab" aria-controls="More_details
+                  " aria-selected="false">More details
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Summary-tab"  href="Summary.html" role="tab" aria-controls="Summary
+                    " aria-selected="false">Summary
+                      </a>
+                  </li>
+              </ul>
+              <div class="container-fluid">
+                <form>
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <label for="nameTxt">City</label>
+                      <input type="text" class="form-control" id="cityTxt" placeholder="Insert your City">
+                    </div>
+                  </div>
+            
+            
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <label for="nameTxt">Street </label>
+                      <input type="text" class="form-control" id="StreetTxt" placeholder="Insert your Street">
+                    </div>
+                  </div>
+            
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                      <label for="nameTxt">Number</label>
+                      <input type="text" class="form-control" id="numberTxt" placeholder="Insert your Street Number">
+                    </div>
+                  </div>
+            
+            
+                  <button class="btn btn-primary" type="submit">Save</button>
+                </form>
+                <script>
+            (window.onload = function(){
+              masterList = JSON.parse(localStorage.getItem('settings')); //get data from storage
+              if (masterList !== null) { //if data exist (todos are in storage)
+                 //append each element into the dom
+                 document.getElementById("cityTxt").value =  masterList.city;
+                 document.getElementById("numberTxt").value = masterList.number;
+                 document.getElementById("StreetTxt").value = masterList.street;
+                
+                
+              } else { //if nothing exist in storage, keep todos array empty
+                masterList = [];
+              }
+            })();
+            
+                  const button = document.querySelector('button'),
+                    form = document.querySelector('form'),
+                    cityTxt = document.querySelector('#cityTxt'),
+                    numberTxt = document.querySelector('#numberTxt'),
+                    Streetxt = document.querySelector('#StreetTxt');
+            
+                   // divName = document.querySelector('#StreetTxt');
+            
+            
+                  button.addEventListener('click', () => {     
+                       
+                    let settings = {
+                      name:'',
+                      Email: '',
+                      BirthDay:'',
+                      image:'',
+                      Hobbies:'',
+                      imgurl:'',
+                       city: cityTxt.value,
+                      number: numberTxt.value,
+                      street:Streetxt.value
+                    };
+                    localStorage.settings = JSON.stringify(settings);
+            
+            
+            
+                  });
+            
+                  form.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                  });
+            
+            
+            
+            
+              
+               
+               </script>
+              </div>
+            
+              <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade" id="Personal_Details" role="tabpanel" aria-labelledby="Personal_Details-tab">Personal_Details</div>
+                <div class="tab-pane fade show active" id="Address" role="tabpanel" aria-labelledby="Address-tab">Address</div>
+                <div class="tab-pane fade" id="More_details" role="tabpanel" aria-labelledby="More_details-tab">More_details</div>
+                <div class="tab-pane fade" id="Summary" role="tabpanel" aria-labelledby="Summary-tab">Summary</div>
+              </div>
+        </div>
+        <div class="col"></div>
+   
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
