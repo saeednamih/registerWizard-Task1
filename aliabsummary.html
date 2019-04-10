@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+
+            <div class="col"></div>
+            <div class="col-6">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link " id="Personal_Details-tab" href="Personal_Details.html" role="tab"
+                            aria-controls="Personal_Details" aria-selected="true">Personal Details
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="Address-tab" href="Address.html" role="tab" aria-controls="Address"
+                            aria-selected="false">
+                            Address</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="More_details-tab" href="More_details.html" role="tab" aria-controls="More_details
+                  " aria-selected="false">More details
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="Summary-tab" data-toggle="tab" href="Summary.html" role="tab"
+                            aria-controls="Summary
+                    " aria-selected="false">Summary
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade " id="Personal_Details" role="tabpanel"
+                        aria-labelledby="Personal_Details-tab">Personal_Details</div>
+                    <div class="tab-pane fade" id="Address" role="tabpanel" aria-labelledby="Address-tab">Address</div>
+                    <div class="tab-pane fade" id="More_details" role="tabpanel" aria-labelledby="More_details-tab">
+                        More_details</div>
+                    <div class="tab-pane fade show active" id="Summary" role="tabpanel" aria-labelledby="Summary-tab">
+                        Summary
+                        <!DOCTYPE html>
+                        <html lang="en">
+
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                            <link rel="stylesheet"
+                                href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                                crossorigin="anonymous">
+
+                            <style>
+                                #components {
+                                    text-align: center;
+                                }
+
+                                label {
+                                    margin: .75rem .5rem;
+                                }
+
+                                #imgurl {
+                                    margin: 5rem 2rem;
+                                }
+
+                                #labels {
+                                    margin: .75rem .5rem;
+                                }
+                            </style>
+                        </head>
+
+                        <body>
+
+
+
+
+
+                            <div class="container">
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1"> </div>
+                                <div class="col-md-3" id="labels">
+                                    <div class="row" id="components">
+                                        <label>Name:</label> <label id="Name"></label>
+                                    </div>
+                                    <div class="row">
+                                        <label>Email:</label> <label id="Email"> </label>
+                                    </div>
+                                    <div class="row">
+                                        <label>Birthday:</label> <label id="Birthday"></label>
+
+                                    </div>
+                                    <div class="row">
+                                        <label>Addrerss:</label> <label id="Address"></label>
+                                    </div>
+
+                                    <div class="row">
+                                        <label>Hobbies</label> <label id="Hobbies"></labe>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 ">
+
+                                </div>
+                                <div class="col" id="imgurl">
+
+                                    <div class="row">
+                                        <div class="text-center">
+                                            <img src="" class="rounded" alt="..." id="imgurl">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+</body>
+
+
+<script>
+    (window.onload = function () {
+        if (localStorage.settings) {
+            const settings = JSON.parse(localStorage.settings);
+            let Addrerssperson = `${settings.city} ${settings.street} ${settings.number}`
+            document.getElementById("Name").innerHTML = settings.name;
+            document.getElementById("Email").innerHTML = settings.Email;
+            document.getElementById("Birthday").innerHTML = settings.BirthDay;
+            document.getElementById("Address").innerHTML = Addrerssperson;
+            document.getElementById("Hobbies").innerHTML = settings.Hobbies;
+
+            document.getElementById("imgurl").src = settings.imgurl;
+
+        }
+
+
+
+    })();
+
+
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</html>
+
+
+
+</div>
+</div>
+</div>
+<div class="col"></div>
+
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
