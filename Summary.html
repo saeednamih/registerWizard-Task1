@@ -11,42 +11,121 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row mt-5">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col md-6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link " id="Personal_Details-tab" href="Personal_Details.html" role="tab" aria-controls="Personal_Details" aria-selected="true">
+                    Personal Details
 
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link " id="Personal_Details-tab" href="Personal_Details.html" role="tab" aria-controls="Personal_Details" aria-selected="true">Personal Details
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="Address-tab" href="Address.html" role="tab" aria-controls="Address" aria-selected="false">
-                            Address</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="More_details-tab" href="More_details.html" role="tab" aria-controls="More_details
-                  " aria-selected="false">More details
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" id="Summary-tab" data-toggle="tab" href="Summary.html" role="tab" aria-controls="Summary
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " id="Address-tab" href="Address.html" role="tab" aria-controls="Address" aria-disabled="true" aria-selected="false">
+                        Address</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " id="More_details-tab" href="More_details.html" role="tab" aria-controls="More_details" aria-disabled="true"
+                        aria-selected="false">More details
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" id="Summary-tab" href="Summary.html" role="tab" aria-disabled="true" aria-controls="Summary
                     " aria-selected="false">Summary
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade " id="Personal_Details" role="tabpanel" aria-labelledby="Personal_Details-tab">Personal_Details</div>
-                    <div class="tab-pane fade" id="Address" role="tabpanel" aria-labelledby="Address-tab">Address</div>
-                    <div class="tab-pane fade" id="More_details" role="tabpanel" aria-labelledby="More_details-tab">More_details</div>
-                    <div class="tab-pane fade show active" id="Summary" role="tabpanel" aria-labelledby="Summary-tab"></div>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
+                    </a>
+                </li>
+            </ul>
 
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Personal_Details" role="tabpanel" aria-labelledby="Personal_Details-tab">
+
+                    <div class="container-fluid">
+                        <div class="container">
+                            <div class="row mt-3">
+                                <div class="col-md-4" id="labels">
+                                    <div class="row" id="components">
+                                        <label>Name: </label>
+                                        <label id="Name"></label>
+                                    </div>
+                                    <div class="row">
+                                        <label>Email:</label>
+                                        <label id="Email"> </label>
+                                    </div>
+                                    <div class="row">
+                                        <label>Birthday:</label>
+                                        <label id="Birthday"></label>
+
+                                    </div>
+                                    <div class="row">
+                                        <label>Addrerss:</label>
+                                        <label id="Address"></label>
+                                    </div>
+
+                                    <div class="row">
+                                        <label>Hobbies</label>
+                                        <label id="Hobbies">
+                                            </labe>
+                                    </div>
+                                </div>
+                                <div class="col" id="imgurl1">
+
+                                    <div class="row">
+                                        <div class="text-center">
+                                            <img src="" class="rounded" alt="..." id="imgurl">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade" id="Address" role="tabpanel" aria-labelledby="Address-tab">Address</div>
+                <div class="tab-pane fade" id="More_details" role="tabpanel" aria-labelledby="More_details-tab">More_details</div>
+                <div class="tab-pane fade" id="Summary" role="tabpanel" aria-labelledby="Summary-tab">Summary</div>
+            </div>
         </div>
+        <div class="col-md-3"></div>
     </div>
+
+    </div>
+    <script>
+        console.log(localStorage);
+        (window.onload = function () {
+            if (localStorage.information && localStorage.address && localStorage.moreDetail) {
+                const information = JSON.parse(localStorage.information);
+                document.getElementById("Name").innerHTML = information.name;
+                document.getElementById("Email").innerHTML = information.email;
+                document.getElementById("Birthday").innerHTML = information.birtday;
+                const address = JSON.parse(localStorage.address);
+                let Addrerssperson = `${address.city} ${address.street} ${address.number}`
+                document.getElementById("Address").innerHTML = Addrerssperson;
+                //console.log(`${address.city} ${address.street} ${address.number}`);
+                const moreDetail = JSON.parse(localStorage.moreDetail);
+                document.getElementById("Hobbies").innerHTML = moreDetail.listhobbies;
+                document.getElementById("imgurl").src = "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/man-student.png";
+                console.log(information);
+                console.log(address);
+                console.log(moreDetail);
+            }
+            else {
+                if (!(localStorage.information)) {
+                    window.location.href = "Personal_Details.html";
+                }
+                if (!(localStorage.Address)) {
+                    window.location.href = "Address.html";
+                }
+                if (!(localStorage.moreDetail)) {
+                    window.location.href = "More_details.html";
+                }
+            }
+        })();
+    </script>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
